@@ -1,0 +1,30 @@
+.main-footer{
+    color: #191716;
+    background-color: rgb(235, 195, 64);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-footer img {
+    width: 20vh;
+    height: 20vh;
+}
+
+.container p:nth-child(2) {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.container p:nth-child(3) {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+.container {
+    text-align: center;
+}
