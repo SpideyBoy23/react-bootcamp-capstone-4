@@ -1,5 +1,7 @@
 import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
+import { Slider } from '../components/Slider/Slider';
+import SliderData  from "../mocks/en-us/featured-banners";
 import './App.css';
 
 function App() {
@@ -7,12 +9,10 @@ function App() {
   return (
     <>
       <div className="page-container">
-        <div className="content-wrapper">       
-          <Header />
-          <p>AAAAAAAAAAAAAAAAAAAAA
-            AAAAAAAAAAAAAAAAAAAAAAAAAAA
-            AAAAAAAAAAAAAA
-            AAAAAAAAAAAA</p>
+        <Header />
+        <div className="content-wrapper">
+          <h1>Featured Models</h1>
+          <Slider slides={SliderData}/>
         </div>
         <Footer />
       </div>
