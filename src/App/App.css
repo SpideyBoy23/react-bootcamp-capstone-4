@@ -13,12 +13,19 @@
   }
 }
 
-h1 {
+h1, h2{
   color: #f8f8f8;
   font-weight: bolder;
-  font-size: xxx-large;
   background-color: #191716;
   text-align: center;
+}
+
+h1 {
+  font-size: xxx-large;
+}
+
+h2 {
+  font-size: xx-large;
 }
 
 .page-container {
