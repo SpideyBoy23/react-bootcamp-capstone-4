@@ -1,0 +1,69 @@
+.header {
+    text-align: left;
+    background: #191716;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.header img {
+    padding: 0 0 6px 24px;
+    width: 100px;
+    height: 100px;
+}
+
+.Icon{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 48px;
+    width: 48px;
+    font-weight: bold;
+    font-size: 32px;
+    position: absolute;
+    margin-right: 8px;
+    justify-content: center;
+    border-radius: 50%;
+    color: #e78504;
+    transition: .3s ease-in-out;
+}
+
+.Shopping-cart {
+    right: 0;
+}
+
+.Search-bar {
+    right: 130px;
+}
+
+.Hamburguer-menu {
+    display: none;
+}
+
+.Search-icon {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .Search-bar {
+        display: none;
+    }
+    .Search-icon {
+        display: flex;
+        right: 130px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .Hamburguer-menu {
+        display: flex;
+        right: 0;
+    }
+    .Search-bar {
+        right: 198px;
+    }
+    .Shopping-cart {
+        right: 64px;
+    }
+
+}
