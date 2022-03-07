@@ -1,6 +1,6 @@
 import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
-import { Slider } from '../components/Slider/Slider';
+import { Slider } from '../components/FeaturedSlider/FeaturedSlider';
 import SliderData  from "../mocks/en-us/featured-banners";
 import './App.css';
 

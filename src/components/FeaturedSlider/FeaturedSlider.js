@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from 'react-icons/md';
-import './Slider.css';
+import './FeaturedSlider.css';
 
 
 export const Slider = ({ slides }) => {
@@ -16,12 +16,6 @@ export const Slider = ({ slides }) => {
         console.log(length);
         setCurrentSlide(currentSlide === 0 ? length - 1 : currentSlide - 1);
     }
-
-    console.log(currentSlide);
-
-    // if(!Array.isArray(slides) || slides.length <= 0) {
-    //     return null;
-    // }
 
     return(
         <>
