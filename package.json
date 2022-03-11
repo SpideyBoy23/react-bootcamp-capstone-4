@@ -9,7 +9,10 @@
     "eslint": "^7.32.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "^4.0.3",
+    "react-icons": "^4.3.1",
+    "react-scripts": "^5.0.0",
+    "react-slick": "^0.28.1",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -17,53 +20,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "rules": {
-      "comma-dangle": [
-        "error",
-        {
-          "arrays": "always-multiline",
-          "exports": "always-multiline",
-          "functions": "never",
-          "imports": "always-multiline",
-          "objects": "always-multiline"
-        }
-      ],
-      "max-len": [
-        "error",
-        {
-          "code": 100
-        }
-      ],
-      "eqeqeq": [
-        "error",
-        "always",
-        {
-          "null": "ignore"
-        }
-      ],
-      "no-await-in-loop": [
-        "error"
-      ],
-      "no-param-reassign": "error",
-      "react/self-closing-comp": "error",
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-      "lines-between-class-members": [
-        "error",
-        "always",
-        {
-          "exceptAfterSingleLine": true
-        }
-      ],
-      "no-sparse-arrays": 0,
-      "curly": "error"
-    }
   },
   "browserslist": {
     "production": [
@@ -77,5 +33,11 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "css-loader": "^6.7.0",
+    "postcss": "^8.4.7",
+    "postcss-loader": "^6.2.1",
+    "style-loader": "^3.3.1"
+  }
 }
