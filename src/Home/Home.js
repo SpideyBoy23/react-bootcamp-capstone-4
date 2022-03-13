@@ -3,13 +3,14 @@ import { Footer } from '../components/Footer/Footer';
 import { Slider } from '../components/FeaturedSlider/FeaturedSlider';
 import { Categories } from '../components/CategoriesCarousel/CategoriesCarousel';
 import { FeaturedProducts } from '../components/FeaturedProducts/FeaturedProducts';
+import { Button } from '../components/Buttons/Button';
 import SliderData  from "../mocks/en-us/featured-banners";
 import CategoriesData  from "../mocks/en-us/product-categories";
 import FeaturedProductsData  from "../mocks/en-us/featured-products";
 
-import './App.css';
+import './Home.css';
 
-function App() {
+function Home() {
 
   return (
     <>
@@ -22,6 +23,7 @@ function App() {
           <Categories categories={CategoriesData}/>
           <h2>Featured Products</h2>
           <FeaturedProducts products={FeaturedProductsData}/>
+          <Button type={'primary'} value={'View All Products'}></Button>
         </div>
         <Footer />
       </div>
@@ -29,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
