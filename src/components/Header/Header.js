@@ -8,18 +8,18 @@ import './Header.css';
 
 
 
-export const Header = () => {
+export const Header = ({ action, page, openSideBar }) => {
     return (
         <>
             <nav className="header">
-                <img src={logoUrl} alt=""></img>
+                <img src={logoUrl} alt="" onClick={action}></img>
                 <span  className="Icon Search-bar">
                     <SearchBar/>
                 </span>
                 <span className="Icon Shopping-cart">
                     <AiOutlineShoppingCart />
                 </span>
-                <span className="Icon Hamburguer-menu">
+                <span className="Icon Hamburguer-menu" onClick={page ? null : (openSideBar)}>
                     <GiHamburgerMenu />
                 </span>
                 <span className="Icon Search-icon">

@@ -1,0 +1,29 @@
+.numbers {
+    text-align: center;
+    margin: 20px 0 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+a {
+    border-radius:18px;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 5px 10px;
+    border: 1px solid #E78504;
+    background: #E78504;
+    color: #191716;
+    margin: 5px;
+    width: 16px;
+}
+
+.paginationBtn {
+    border-radius: 18px;
+    padding: 0;
+    width: 32px;
+}
+
+.paginationArrows {
+    font-size: large;
+}
