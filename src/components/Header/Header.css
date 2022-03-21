@@ -33,15 +33,16 @@
 }
 
 .Shopping-cart {
-    right: 0;
+    right: 64px;
 }
 
 .Search-bar {
-    right: 130px;
+    right: 182px;
 }
 
 .Hamburguer-menu {
-    display: none;
+    display: flex;
+    right: 0;
 }
 
 .Search-icon {
@@ -56,18 +57,4 @@
         display: flex;
         right: 130px;
     }
-}
-
-@media (max-width: 1024px) {
-    .Hamburguer-menu {
-        display: flex;
-        right: 0;
-    }
-    .Search-bar {
-        right: 182px;
-    }
-    .Shopping-cart {
-        right: 64px;
-    }
-
 }

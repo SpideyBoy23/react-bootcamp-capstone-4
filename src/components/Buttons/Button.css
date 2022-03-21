@@ -1,0 +1,28 @@
+section {
+    text-align: center;
+    margin: 4vh;
+}
+
+button {
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0.5em 1em;
+    padding: 0.25em 1em;
+    text-align: center;
+    border: 2px solid #E78504;
+    color: #E78504;
+    background: #191716;
+}
+
+.primary {
+    width: 370px;
+    height: 72px;
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+.primary:hover {
+    border: 2px solid #E78504;
+    background: #E78504;
+    color: #191716;
+}
