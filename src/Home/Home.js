@@ -6,16 +6,23 @@ import SliderData  from "../mocks/en-us/featured-banners";
 import CategoriesData  from "../mocks/en-us/product-categories";
 import FeaturedProductsData  from "../mocks/en-us/featured-products";
 
+import {useHistory} from 'react-router-dom';
+
 import './Home.css';
 
-function Home({action}) {
+function Home() {
+
+  const history = useHistory();
+  const changeProductsPage = () => {
+    history.push("/products");
+  }
 
   return (
     <>
         <Slider slides={SliderData}/>
         <Categories categories={CategoriesData}/>
         <ProductsGrid products={FeaturedProductsData} title={"Featured Products"}/>
-        <Button type={'primary'} value={'View All Products'} action={action} ></Button>
+        <Button type={'primary'} value={'View All Products'} action={changeProductsPage} ></Button>
     </>
   );
 }

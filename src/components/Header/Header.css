@@ -32,6 +32,50 @@
     transition: .3s ease-in-out;
 }
 
+.navigation-container {
+    font-size: large;
+}
+
+.navigation-elements {
+    color: #f8f8f8;
+    text-align: center;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+a {
+    position: relative;
+    color: #e78504;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e78504;
+}
+
+a::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #e78504;
+    transform: scaleX(0);
+    transition: transform 0.1s ease;
+}
+
+a:hover::before {
+    transform: scaleX(1);
+}
+
+.active-link {
+    text-decoration: underline;
+    color: #e78504;
+    text-underline-offset: 2px;
+}
+
 .shopping-cart {
     right: 64px;
 }
