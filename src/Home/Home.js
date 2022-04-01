@@ -12,12 +12,9 @@ function Home({action}) {
 
   return (
     <>
-        <h1>Featured Models</h1>
         <Slider slides={SliderData}/>
-        <h2>Categories</h2>
         <Categories categories={CategoriesData}/>
-        <h2>Featured Products</h2>
-        <ProductsGrid products={FeaturedProductsData}/>
+        <ProductsGrid products={FeaturedProductsData} title={"Featured Products"}/>
         <Button type={'primary'} value={'View All Products'} action={action} ></Button>
     </>
   );

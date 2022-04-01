@@ -18,6 +18,7 @@ export const Categories = ({categories}) => {
 
     return(
         <>
+            <h2>Categories</h2>
             <section className="CategoriesCarousel">
                 <div className="CategoriesCards">
                     <Slider {...settings}>

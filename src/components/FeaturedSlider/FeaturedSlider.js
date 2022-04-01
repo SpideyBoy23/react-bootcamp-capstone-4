@@ -19,6 +19,7 @@ export const Slider = ({ slides }) => {
 
     return(
         <>
+            <h1>Featured Models</h1>
             <section className="slider">
                 <MdKeyboardArrowLeft className="Left-arrow"  onClick={previousSlide}/>
                 <MdKeyboardArrowRight className="Right-arrow" onClick={nextSlide}/>
