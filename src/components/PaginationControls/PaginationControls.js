@@ -13,9 +13,9 @@ export const Pagination = () => {
         <div className="numbers">
             <button className="pagination-btn"><MdKeyboardArrowLeft className="pagination-arrows pagination-left"/></button>
             {pages.map(number => (
-                <a key={number} >
+                <span key={number} className="pagination-numbers">
                 {number}
-                </a>
+                </span>
             ))}
             <button className="pagination-btn"><MdKeyboardArrowRight className="pagination-arrows pagination-right"/></button>
         </div>
