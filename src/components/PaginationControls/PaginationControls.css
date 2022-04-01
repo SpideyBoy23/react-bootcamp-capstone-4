@@ -18,12 +18,12 @@ a {
     width: 16px;
 }
 
-.paginationBtn {
+.pagination-btn {
     border-radius: 18px;
     padding: 0;
     width: 32px;
 }
 
-.paginationArrows {
+.pagination-arrows {
     font-size: large;
 }

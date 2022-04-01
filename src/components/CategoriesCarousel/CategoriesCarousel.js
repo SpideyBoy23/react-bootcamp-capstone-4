@@ -18,9 +18,8 @@ export const Categories = ({categories}) => {
 
     return(
         <>
-            <h2>Categories</h2>
-            <section className="CategoriesCarousel">
-                <div className="CategoriesCards">
+            <section className="categories-carousel">
+                <div className="categories-cards">
                     <Slider {...settings}>
                         {categories.results.map((category, index) => {
                                 const { data: {name, main_image: { alt, url }} } = category
@@ -33,7 +32,6 @@ export const Categories = ({categories}) => {
                                             </div>
                                         </div>
                                     </div>
-                                    
                                 )
                             })}           
                     </Slider>

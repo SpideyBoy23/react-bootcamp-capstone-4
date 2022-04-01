@@ -16,7 +16,7 @@
     height: 100px;
 }
 
-.Icon{
+.icon{
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -32,28 +32,28 @@
     transition: .3s ease-in-out;
 }
 
-.Shopping-cart {
+.shopping-cart {
     right: 64px;
 }
 
-.Search-bar {
+.search-bar {
     right: 182px;
 }
 
-.Hamburguer-menu {
+.hamburguer-menu {
     display: flex;
     right: 0;
 }
 
-.Search-icon {
+.search-icon {
     display: none;
 }
 
 @media (max-width: 480px) {
-    .Search-bar {
+    .search-bar {
         display: none;
     }
-    .Search-icon {
+    .search-icon {
         display: flex;
         right: 130px;
     }

@@ -13,16 +13,16 @@ export const Header = ({ action, page, openSideBar }) => {
         <>
             <nav className="header">
                 <img src={logoUrl} alt="" onClick={action}></img>
-                <span  className="Icon Search-bar">
+                <span  className="icon search-bar">
                     <SearchBar/>
                 </span>
-                <span className="Icon Shopping-cart">
+                <span className="icon shopping-cart">
                     <AiOutlineShoppingCart />
                 </span>
-                <span className="Icon Hamburguer-menu" onClick={page ? null : (openSideBar)}>
+                <span className="icon hamburguer-menu" onClick={page ? null : (openSideBar)}>
                     <GiHamburgerMenu />
                 </span>
-                <span className="Icon Search-icon">
+                <span className="icon search-icon">
                     <AiOutlineSearch />
                 </span>
             </nav>

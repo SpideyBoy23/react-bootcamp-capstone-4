@@ -28,7 +28,7 @@ export const Slider = ({ slides }) => {
                     return (
                         <div className={index == currentSlide ? 'slide active' : 'slide'} key={index}>
                             {index === currentSlide && (
-                                <img src={url} alt={alt} className="Slider-image"/>
+                                <img src={url} alt={alt} className="slider-image"/>
                             )}
                         </div>
                         

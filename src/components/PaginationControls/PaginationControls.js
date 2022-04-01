@@ -11,13 +11,13 @@ export const Pagination = () => {
 
     return (
         <div className="numbers">
-            <button className="paginationBtn"><MdKeyboardArrowLeft className="paginationArrows paginationLeft"/></button>
+            <button className="pagination-btn"><MdKeyboardArrowLeft className="pagination-arrows pagination-left"/></button>
             {pages.map(number => (
                 <a key={number} >
                 {number}
                 </a>
             ))}
-            <button className="paginationBtn"><MdKeyboardArrowRight className="paginationArrows paginationRight"/></button>
+            <button className="pagination-btn"><MdKeyboardArrowRight className="pagination-arrows pagination-right"/></button>
         </div>
     );
 };

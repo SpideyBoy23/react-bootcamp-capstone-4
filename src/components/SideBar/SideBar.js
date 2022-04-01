@@ -7,7 +7,7 @@ export const SideBar = ({ filter, page, categories}) => {
             <>
                 <div className="sidebar">
                     <ul>
-                        <h2 className="filterTitle">Filter your next flip</h2>
+                        <h2 className="filter-title">Filter your next flip</h2>
                         {categories.results.map((category, index) => {
                             const { id, data: {name} } = category
                             return (
