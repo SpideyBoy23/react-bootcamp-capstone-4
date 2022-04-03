@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from 'react-icons/md';
+import { Loader } from '../Loader/Loader';
 
 import { useFeaturedBanners } from '../../utils/hooks/useFeaturedBanners';
 
@@ -27,7 +28,7 @@ export const Slider = ({ slides }) => {
             <section className="slider">
                 <MdKeyboardArrowLeft className="Left-arrow"  onClick={previousSlide}/>
                 <MdKeyboardArrowRight className="Right-arrow" onClick={nextSlide}/>
-                {featuredBannersInfo.isLoading ? 'Loading' :  featuredBannersInfo.data.results.map((slide, index) => {
+                {featuredBannersInfo.isLoading ? <Loader /> :  featuredBannersInfo.data.results.map((slide, index) => {
                     const { data: { main_image: {alt, url} } } = slide
                     return (
                         <div className={index == currentSlide ? 'slide active' : 'slide'} key={index}>

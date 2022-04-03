@@ -1,7 +1,6 @@
 import Slider from "react-slick";
-
 import { useProductsCategories } from '../../utils/hooks/useProductCategories';
-
+import { Loader } from '../Loader/Loader';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import './CategoriesCarousel.css';
@@ -24,7 +23,7 @@ export const Categories = ({}) => {
             <section className="categories-carousel">
                 <div className="categories-cards">
                         {categorias.isLoading 
-                        ? 'Loading' 
+                        ? <Loader /> 
                         : 
                         <Slider {...settings}>
                             {
