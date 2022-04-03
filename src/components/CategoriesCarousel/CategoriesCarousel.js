@@ -1,12 +1,15 @@
-import { useState } from 'react';
-import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from 'react-icons/md';
 import Slider from "react-slick";
+
+import { useProductsCategories } from '../../utils/hooks/useProductCategories';
+
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import './CategoriesCarousel.css';
 
 
-export const Categories = ({categories}) => {
+export const Categories = ({}) => {
+    
+    const categorias = useProductsCategories();
 
     const settings = {
         dots: false,
@@ -20,8 +23,12 @@ export const Categories = ({categories}) => {
         <>
             <section className="categories-carousel">
                 <div className="categories-cards">
-                    <Slider {...settings}>
-                        {categories.results.map((category, index) => {
+                        {categorias.isLoading 
+                        ? 'Loading' 
+                        : 
+                        <Slider {...settings}>
+                            {
+                            categorias.data.results.map((category, index) => {
                                 const { data: {name, main_image: { alt, url }} } = category
                                 return (
                                     <div className="product-card" key={index}>
@@ -33,8 +40,9 @@ export const Categories = ({categories}) => {
                                         </div>
                                     </div>
                                 )
-                            })}           
-                    </Slider>
+                            })}
+                            </Slider>
+                        }           
                 </div>
             </section>
         </>

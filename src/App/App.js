@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer/Footer'
 import { Home } from '../Home/Home';
 import { ProductList } from '../ProductList/ProductList';
 import { Loader } from '../components/Loader/Loader';
+import ScrollToTop from '../components/common/ScrollToTop/ScrollToTop';
 
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
 
@@ -21,6 +22,7 @@ function App() {
                 <div className="page-container">
                     <Header/>
                     <div className="content-wrapper">
+                        <ScrollToTop />
                         <Switch>
                             <Route exact path={['/', '/home']}>
                                 <Home />
