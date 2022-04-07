@@ -1,0 +1,10 @@
+figure {
+    font-size: 1.5em;
+    color: #e78504;
+}
+
+.product-card a {
+    position: relative;
+    color: #f8f8f8;
+    text-decoration: none;
+}

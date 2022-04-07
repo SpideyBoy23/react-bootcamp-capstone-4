@@ -1,14 +1,11 @@
 import Slider from "react-slick";
-import { useProductsCategories } from '../../utils/hooks/useProductCategories';
 import { Loader } from '../Loader/Loader';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import './CategoriesCarousel.css';
 
 
-export const Categories = ({}) => {
-    
-    const categorias = useProductsCategories();
+export const Categories = ({categories}) => {
 
     const settings = {
         dots: false,
@@ -22,12 +19,12 @@ export const Categories = ({}) => {
         <>
             <section className="categories-carousel">
                 <div className="categories-cards">
-                        {categorias.isLoading 
+                        {categories.isLoading 
                         ? <Loader /> 
                         : 
                         <Slider {...settings}>
                             {
-                            categorias.data.results.map((category, index) => {
+                            categories.data.results.map((category, index) => {
                                 const { data: {name, main_image: { alt, url }} } = category
                                 return (
                                     <div className="product-card" key={index}>
