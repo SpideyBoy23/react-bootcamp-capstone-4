@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Header } from '../components/Header/Header'
 import { Footer } from '../components/Footer/Footer'
-import { Home } from '../Home/Home';
-import { ProductList } from '../ProductList/ProductList';
-import { Loader } from '../components/Loader/Loader';
+import { Home } from '../pages/Home/Home';
+import { ProductList } from '../pages/ProductList/ProductList';
+import { ProductDetail } from '../pages/ProductDetail/ProductDetail';
 import ScrollToTop from '../components/common/ScrollToTop/ScrollToTop';
 
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
@@ -29,6 +29,9 @@ function App() {
                             </Route>
                             <Route excact path="/products" >
                                 <ProductList sideBarStatus={sideBarStatus} page={renderPage}/>
+                            </Route>
+                            <Route excact path="/product/:productId" >
+                                <ProductDetail />
                             </Route>
                         </Switch>
                     </div>
