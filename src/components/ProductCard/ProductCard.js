@@ -15,18 +15,18 @@ export const ProductCard = ({ products, idCategoy }) => {
                             <div className="product-card" key={index}>
                                 <Link to={`/product/${id}`}>
                                     <img src={url} alt={alt} className="product-img" />
-                                    <div className="product-info">
-                                        <div>
-                                            <p>{name}</p>
-                                            <p>{slug}</p>
-                                            <p>SKU: {sku}</p>
-                                            <p>$ {price}</p>
-                                        </div>
-                                        <figure>
-                                            <MdOutlineAddShoppingCart />
-                                        </figure>
-                                    </div>
                                 </Link>
+                                <div className="product-info">
+                                    <div>
+                                        <p>{name}</p>
+                                        <p>{slug}</p>
+                                        <p>SKU: {sku}</p>
+                                        <p>$ {price}</p>
+                                    </div>
+                                    <figure>
+                                        <MdOutlineAddShoppingCart />
+                                    </figure>
+                                </div>
                             </div>
                             
                         )
@@ -41,19 +41,19 @@ export const ProductCard = ({ products, idCategoy }) => {
                         const { data: {name, sku, category: { slug }, mainimage: { alt, url }, price} } = product
                         return (
                             <div className="product-card" key={index}>
-                                <img src={url} alt={alt} className="product-img" />
+                                <Link to={`/product/${id}`}>
+                                    <img src={url} alt={alt} className="product-img" />
+                                </Link>
                                 <div className="product-info">
-                                    <Link to={`/product/${id}`}>
-                                        <div>
-                                            <p>{name}</p>
-                                            <p>{slug}</p>
-                                            <p>SKU: {sku}</p>
-                                            <p>$ {price}</p>
-                                        </div>
-                                        <figure>
-                                            <MdOutlineAddShoppingCart />
-                                        </figure>
-                                    </Link>
+                                    <div>
+                                        <p>{name}</p>
+                                        <p>{slug}</p>
+                                        <p>SKU: {sku}</p>
+                                        <p>$ {price}</p>
+                                    </div>
+                                    <figure>
+                                        <MdOutlineAddShoppingCart />
+                                    </figure>
                                 </div>
                             </div>
                             
