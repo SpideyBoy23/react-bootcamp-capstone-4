@@ -1,13 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { API_BASE_URL } from '../constants';
 import { useLatestAPI } from './useLatestAPI';
 
 export function useProducts({ pageSize, currentPage }) {
     const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
+    const [reFetch, setReFetc] = useState(0);
     const [products, setProducts] = useState(() => ({
         data: {},
         isLoading: true,
     }));
+
+    const reSearch = useCallback(() => {
+        setReFetc(reFetch + 1);
+    })
 
     useEffect(() => {
         if (!apiRef || isApiMetadataLoading) {
@@ -41,7 +46,7 @@ export function useProducts({ pageSize, currentPage }) {
         return () => {
         controller.abort();
         };
-    }, [apiRef, isApiMetadataLoading]);
+    }, [apiRef, isApiMetadataLoading, reFetch]);
 
-    return products;
+    return [products, reSearch];
 }

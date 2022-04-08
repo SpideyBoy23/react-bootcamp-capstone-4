@@ -12,8 +12,7 @@
     font-size: 20px;
     padding: 5px 10px;
     border: 1px solid #E78504;
-    background: #E78504;
-    color: #191716;
+    color: #E78504;
     margin: 5px;
     width: 16px;
 }
@@ -27,3 +26,9 @@
 .pagination-arrows {
     font-size: large;
 }
+
+.numbers span:hover {
+    background-color: #E78504;
+    color: #191716;
+    cursor: pointer;
+} 

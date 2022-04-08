@@ -13,15 +13,12 @@ export const Pagination = ({ productsData, isLoading, paginate }) => {
     }
 
     return (
-        <div className="numbers">
-            <button className="pagination-btn"><MdKeyboardArrowLeft className="pagination-arrows pagination-left"/></button>
-            
+        <div className="numbers">            
             {isLoading ? ' ' :  totalPages.map(number => (
                 <span key={number} className="pagination-numbers" onClick={() => paginate(number)}>
                     {number}
                 </span>
             ))}
-            <button className="pagination-btn"><MdKeyboardArrowRight className="pagination-arrows pagination-right"/></button>
         </div>
     );
 };

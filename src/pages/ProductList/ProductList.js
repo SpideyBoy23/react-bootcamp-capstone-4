@@ -11,7 +11,7 @@ import './ProductList.css'
 function ProductList ({ sideBarStatus, page }) {
     
     const [currentPage, setCurrentPage] = useState(1);
-    const { data: productsData, isLoading } = useProducts({ pageSize: 12, currentPage: currentPage});
+    const [{ data: productsData, isLoading }, reSearch] = useProducts({ pageSize: 12, currentPage: currentPage});
     const [item, setItem] = useState();
     const [activeCategory, setActiveCategory] = useState(true);
 
@@ -20,17 +20,10 @@ function ProductList ({ sideBarStatus, page }) {
         activeCategory ? setActiveCategory(false) : setActiveCategory(true);
     }
 
-    // function fetchPrductsData () {
-    //     productsData = useProducts({ pageSize: 12, currentPage: currentPage});
-    // }
-
-    // useEffect(() => {
-    //     fetchPrductsData();
-    // },[currentPage])
-    
-    // console.log(productsData);
-
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    function paginate (number) {
+        setCurrentPage(number);
+        reSearch();
+    }
 
     return (
         <>
