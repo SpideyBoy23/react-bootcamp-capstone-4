@@ -1,4 +1,4 @@
-input {
+.search-input {
     font-family: 'Quicksand', sans-serif;
     border-radius: 8px;
     background: #ededed;
@@ -10,10 +10,23 @@ input {
     transition: .5s ease-in-out;
     font-size: 14px;
 }
-input:hover {
+.search-bar-container input:hover {
     box-shadow: 0px 0px 10px #FFFFFC;
 }
-input:focus {
+.search-bar-container input:focus {
     outline: none;
     box-shadow: 0px 0px 10px #FFFFFC;
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar-container button {
+    border: none;
+    color: #FFFFFC;
+    padding: 0;
+    margin: 8px 0 0 8px;
+    font-size: 24px
 }

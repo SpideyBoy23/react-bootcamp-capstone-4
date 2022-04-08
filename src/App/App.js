@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer/Footer'
 import { Home } from '../pages/Home/Home';
 import { ProductList } from '../pages/ProductList/ProductList';
 import { ProductDetail } from '../pages/ProductDetail/ProductDetail';
+import { SearchResults } from '../pages/SearchResults/SearchResults';
 import ScrollToTop from '../components/common/ScrollToTop/ScrollToTop';
 
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
@@ -32,6 +33,9 @@ function App() {
                             </Route>
                             <Route excact path="/product/:productId" >
                                 <ProductDetail />
+                            </Route>
+                            <Route path="/search" >
+                                <SearchResults />
                             </Route>
                         </Switch>
                     </div>
