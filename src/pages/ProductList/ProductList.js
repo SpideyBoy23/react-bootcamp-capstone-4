@@ -33,7 +33,7 @@ function ProductList ({ sideBarStatus, page }) {
             {sideBarStatus && 
                 <SideBar filter={filterItem} activeCategory={activeCategory} page={page} categories={ProductsCategories}/>
             }
-            <Pagination productsData={productsData} paginate={paginate} isLoading={isLoading} />
+            <Pagination productsData={productsData} paginate={paginate} isLoading={isLoading} activePage={currentPage}/>
         </>
     )
 }

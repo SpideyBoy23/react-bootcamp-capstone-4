@@ -27,6 +27,11 @@
     font-size: large;
 }
 
+.active{
+    background-color: #E78504;
+    color: #191716;
+}
+
 .numbers span:hover {
     background-color: #E78504;
     color: #191716;

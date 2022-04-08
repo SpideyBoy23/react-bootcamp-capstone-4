@@ -4,7 +4,7 @@ import './PaginationControls.css';
 
 
 
-export const Pagination = ({ productsData, isLoading, paginate }) => {  
+export const Pagination = ({ productsData, isLoading, paginate, activePage}) => {  
 
     const totalPages = [];
 
@@ -15,7 +15,7 @@ export const Pagination = ({ productsData, isLoading, paginate }) => {
     return (
         <div className="numbers">            
             {isLoading ? ' ' :  totalPages.map(number => (
-                <span key={number} className="pagination-numbers" onClick={() => paginate(number)}>
+                <span key={number} className={` ${activePage == number ? ' active' : ' '} pagination-numbers`} onClick={() => paginate(number)}>
                     {number}
                 </span>
             ))}

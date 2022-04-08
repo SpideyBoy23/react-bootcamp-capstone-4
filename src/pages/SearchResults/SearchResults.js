@@ -44,7 +44,7 @@ export const SearchResults = () => {
                 :
                 <>
                     <ProductsGrid products={productsData} isLoading={isLoading} />
-                    <Pagination productsData={productsData} isLoading={isLoading} paginate={paginate}/>
+                    <Pagination productsData={productsData} isLoading={isLoading} paginate={paginate} activePage={currentPage}/>
                 </>
             }
         </>
