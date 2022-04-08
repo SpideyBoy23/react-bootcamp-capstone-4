@@ -4,12 +4,12 @@ import './ProductCard.css'
 import { Link } from 'react-router-dom';
 
 
-export const ProductCard = ({ products, idCategoy }) => {
+export const ProductCard = ({ products, isLoading, idCategoy }) => {
 
     if(idCategoy === '' || typeof(idCategoy) === 'undefined'){
         return (
             <>
-                {products.isLoading ? <Loader /> : products.data.results.map((product, index) => {
+                {isLoading ? <Loader /> : products.results.map((product, index) => {
                         const { id, data: {name, sku, category: { slug }, mainimage: { alt, url }, price} } = product
                         return (
                             <div className="product-card" key={index}>
@@ -37,7 +37,7 @@ export const ProductCard = ({ products, idCategoy }) => {
     } else {
         return (
             <>
-                {products.isLoading ? <Loader /> : products.results.filter(category => category.data.category.id === idCategoy).map((product, index) => {
+                {isLoading ? <Loader /> : products.results.filter(category => category.data.category.id === idCategoy).map((product, index) => {
                         const { data: {name, sku, category: { slug }, mainimage: { alt, url }, price} } = product
                         return (
                             <div className="product-card" key={index}>

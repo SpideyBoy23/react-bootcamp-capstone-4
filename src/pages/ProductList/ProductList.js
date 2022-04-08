@@ -11,7 +11,7 @@ import './ProductList.css'
 function ProductList ({ sideBarStatus, page }) {
     
     const [currentPage, setCurrentPage] = useState(1);
-    const  productsData = useProducts({ pageSize: 12, currentPage: currentPage});
+    const { data: productsData, isLoading } = useProducts({ pageSize: 12, currentPage: currentPage});
     const [item, setItem] = useState();
     const [activeCategory, setActiveCategory] = useState(true);
 
@@ -36,11 +36,11 @@ function ProductList ({ sideBarStatus, page }) {
         <>
             <h1>Make Room for Better Living</h1>
             <h3>Flip your dream house with us</h3>
-            <ProductsGrid products={productsData} idCategoy={item}/>
+            <ProductsGrid products={productsData} isLoading={isLoading}/>
             {sideBarStatus && 
                 <SideBar filter={filterItem} activeCategory={activeCategory} page={page} categories={ProductsCategories}/>
             }
-            <Pagination productsData={productsData} paginate={paginate} />
+            <Pagination productsData={productsData} paginate={paginate} isLoading={isLoading} />
         </>
     )
 }

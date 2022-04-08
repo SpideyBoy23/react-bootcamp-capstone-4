@@ -109,7 +109,7 @@ export const ProductDetail = () => {
                                         </div>
                                         <div className="quantity-select">
                                             <button className="remove-btn" onClick={() => removeItem()}><AiOutlineMinusSquare className="quantity-btns"/></button>
-                                                <input type="number" value={items} onChange={updateItems} />
+                                                <input className="quantity-input" type="number" value={items} onChange={updateItems} />
                                             <button disabled={!existence} className={ `${existence ? '' : 'disabled-btn' } add-btn` } onClick={() => addItem()}><AiOutlinePlusSquare className=" quantity-btns"/></button>
                                         </div>
                                         <span className={ existence ? 'with-stock' : 'no-stock'  }>There's no more stock available. Please select less products</span>

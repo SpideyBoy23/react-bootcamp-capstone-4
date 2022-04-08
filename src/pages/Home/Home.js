@@ -14,7 +14,7 @@ function Home() {
   
   const SliderData = useFeaturedBanners();    
   const CategoriesData = useProductsCategories();
-  const FeaturedProductsData = useFeaturedProducts({ pageSize: 16});
+  const { data: FeaturedProductsData, isLoading} = useFeaturedProducts({ pageSize: 16});
   const history = useHistory();
   const changeProductsPage = () => {
     history.push("/products");
@@ -24,7 +24,7 @@ function Home() {
     <>
         <Slider slidesData={SliderData}/>
         <Categories categories={CategoriesData}/>
-        <ProductsGrid products={FeaturedProductsData} title={"Featured Products"}/>
+        <ProductsGrid products={FeaturedProductsData} isLoading={isLoading} title={"Featured Products"}/>
         <section>
           <Button type={'primary'} value={'View All Products'} action={changeProductsPage} ></Button>
         </section>
