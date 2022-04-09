@@ -15,7 +15,7 @@ export const Pagination = ({ productsData, isLoading, paginate, activePage}) => 
     return (
         <div className="numbers">            
             {isLoading ? ' ' :  totalPages.map(number => (
-                <span key={number} className={` ${activePage == number ? ' active' : ' '} pagination-numbers`} onClick={() => paginate(number)}>
+                <span key={number} className={` ${activePage == number ? ' active-page' : ' '} pagination-numbers`} onClick={() => paginate(number)}>
                     {number}
                 </span>
             ))}
