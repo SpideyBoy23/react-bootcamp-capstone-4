@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ShopProvider } from '../Context/context';
 import { Header } from '../components/Header/Header'
 import { Footer } from '../components/Footer/Footer'
 import { Home } from '../pages/Home/Home';
@@ -14,35 +14,34 @@ import './App.css';
 
 function App() {
 
-    const [renderPage, setRenderPage] = useState(true);
-    const [sideBarStatus, setSideBarStatus] = useState(false);
-
     return (
-        <Router>
-            <>
-                <div className="page-container">
-                    <Header/>
-                    <div className="content-wrapper">
-                        <ScrollToTop />
-                        <Switch>
-                            <Route exact path={['/', '/home']}>
-                                <Home />
-                            </Route>
-                            <Route excact path="/products" >
-                                <ProductList sideBarStatus={sideBarStatus} page={renderPage}/>
-                            </Route>
-                            <Route excact path="/product/:productId" >
-                                <ProductDetail />
-                            </Route>
-                            <Route path="/search" >
-                                <SearchResults />
-                            </Route>
-                        </Switch>
+        <ShopProvider >
+            <Router>
+                <>
+                    <div className="page-container">
+                        <Header/>
+                        <div className="content-wrapper">
+                            <ScrollToTop />
+                            <Switch>
+                                <Route exact path={['/', '/home']}>
+                                    <Home />
+                                </Route>
+                                <Route excact path="/products" >
+                                    <ProductList />
+                                </Route>
+                                <Route excact path="/product/:productId" >
+                                    <ProductDetail />
+                                </Route>
+                                <Route path="/search" >
+                                    <SearchResults />
+                                </Route>
+                            </Switch>
+                        </div>
+                        <Footer />
                     </div>
-                    <Footer />
-                </div>
-            </>
-        </Router>
+                </>
+            </Router>
+        </ShopProvider>
     );
 }
 

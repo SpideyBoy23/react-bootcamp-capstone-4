@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { ShopContext } from '../../Context/context';
 import { Slider } from '../../components/FeaturedSlider/FeaturedSlider';
 import { Categories } from '../../components/CategoriesCarousel/CategoriesCarousel';
 import { ProductsGrid } from '../../components/ProductsGrid/ProductsGrid';
@@ -16,6 +18,14 @@ function Home() {
   const CategoriesData = useProductsCategories();
   const { data: FeaturedProductsData, isLoading} = useFeaturedProducts({ pageSize: 16});
   const history = useHistory();
+  const { openSidebar } = useContext(ShopContext)
+
+  function cerrar () {
+    openSidebar('/home')
+  }
+
+  cerrar();
+
   const changeProductsPage = () => {
     history.push("/products");
   }

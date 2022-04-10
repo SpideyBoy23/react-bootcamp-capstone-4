@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { ShopContext } from '../../Context/context.js';
 import { SearchBar } from '../SearchBar/SearchBar.js';
 import logoUrl from '../../assets/logos/house_flipper_logo.svg';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
@@ -6,21 +8,19 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
 
-
 import './Header.css';
 
-
-
-export const Header = ({ page, openSideBar }) => {
+export const Header = ({ page }) => {
 
     const history = useHistory();
-    const location = useLocation();
+    const { pathname } = useLocation();
     const homePaths = ['/', '/home'];
+
+    const { openSidebar} = useContext(ShopContext)
     
     const changeHomePage = () => {
         history.push("/");
     }
-
 
     return (
         <>
@@ -30,7 +30,7 @@ export const Header = ({ page, openSideBar }) => {
                     <SearchBar/>
                 </span>
                 <div className="navigation-container">
-                    <NavLink exact to="/" className={`navigation-elements ${homePaths.includes(location.pathname) ? 'active-link' : ' '}`}>
+                    <NavLink exact to="/" className={`navigation-elements ${homePaths.includes(pathname) ? 'active-link' : ' '}`}>
                         Home
                     </NavLink>
                     <NavLink exact to="/products" activeClassName="active-link" className="navigation-elements">
@@ -40,7 +40,7 @@ export const Header = ({ page, openSideBar }) => {
                 <span className="icon shopping-cart">
                     <AiOutlineShoppingCart />
                 </span>
-                <span className="icon hamburguer-menu" onClick={page ? null : (openSideBar)}>
+                <span className="icon hamburguer-menu" onClick={ () => openSidebar(pathname) }>
                     <GiHamburgerMenu />
                 </span>
                 <span className="icon search-icon">

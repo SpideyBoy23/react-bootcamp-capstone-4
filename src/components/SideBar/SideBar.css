@@ -16,6 +16,10 @@
     width: 340px;
 }
 
+.button-clear button {
+    color: #f5f5f5
+}
+
 .sidebar ul {
     list-style: none;
     display: flex;
@@ -37,7 +41,7 @@
     border: 2px solid #E78504;
 }
 
-.is-active {
+.is-active button{
     background-color: #E78504;
     color: #191716;
 }
