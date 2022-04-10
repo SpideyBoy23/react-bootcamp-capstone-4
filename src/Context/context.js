@@ -1,4 +1,4 @@
-import {createContext, useState, useMemo }  from 'react';
+import {createContext, useState, useMemo, useEffect }  from 'react';
 
 const ShopContext = createContext();
 
@@ -6,6 +6,7 @@ const ShopProvider = (props) => {
 
     const [activeSidebar, setActiveSidebar] = useState(false);
     const [activeFilters, setActiveFilters] = useState([]);
+    const [cartItems, setCartItems] = useState([]);
 
     const openSidebar = (pathName) => {
         if (pathName == '/products'){
@@ -23,6 +24,31 @@ const ShopProvider = (props) => {
         }
     }
 
+    const addCartItem = (product, qty) => {
+        const exist = cartItems.find(cartItem => cartItem.id == product.id);
+        if (exist) {
+            if(qty == 0 || qty == null){
+                setCartItems(
+                    cartItems.map(x => 
+                        x.id === product.id ? {...exist, quantity: exist.quantity + 1} : x 
+                    )
+                );
+            } else {
+                setCartItems(
+                    cartItems.map(x => 
+                        x.id === product.id ? {...exist, quantity: exist.quantity + qty} : x 
+                    )
+                );
+            }
+        } else {
+            if(qty == 0 || qty == null) {
+                setCartItems([...cartItems, {...product, quantity: 1}]);
+            } else {
+                setCartItems([...cartItems, {...product, quantity: qty}]);
+            }
+        }
+    }
+
 
     const providerValue = useMemo(() => {
         return(
@@ -31,10 +57,12 @@ const ShopProvider = (props) => {
                 activeSidebar,
                 setFilters,
                 activeFilters,
-                setActiveSidebar
+                setActiveSidebar,
+                cartItems,
+                addCartItem
             }
         )
-    }, [activeSidebar, activeFilters])
+    }, [activeSidebar, activeFilters, cartItems])
 
     return <ShopContext.Provider value={providerValue} {...props} />
 }

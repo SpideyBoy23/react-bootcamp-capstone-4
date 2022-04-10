@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { ShopContext } from '../../Context/context.js';
 import { SearchBar } from '../SearchBar/SearchBar.js';
+import { ShoppingCart } from '../ShoppingCart/ShoppingCart.js';
 import logoUrl from '../../assets/logos/house_flipper_logo.svg';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
@@ -37,9 +37,7 @@ export const Header = ({ page }) => {
                         Products
                     </NavLink>
                 </div>
-                <span className="icon shopping-cart">
-                    <AiOutlineShoppingCart />
-                </span>
+                <ShoppingCart />
                 <span className="icon hamburguer-menu" onClick={ () => openSidebar(pathname) }>
                     <GiHamburgerMenu />
                 </span>

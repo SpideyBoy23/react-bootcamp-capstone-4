@@ -8,9 +8,7 @@ import { Link } from 'react-router-dom';
 
 export const ProductCard = ({ products, isLoading }) => {
 
-    const { activeFilters: idCategoy} = useContext(ShopContext);
-
-    console.log(idCategoy);
+    const { activeFilters: idCategoy, addCartItem } = useContext(ShopContext);
 
     if(idCategoy.length === 0){
         return (
@@ -29,7 +27,7 @@ export const ProductCard = ({ products, isLoading }) => {
                                         <p>SKU: {sku}</p>
                                         <p>$ {price}</p>
                                     </div>
-                                    <figure>
+                                    <figure onClick={() => addCartItem(product)}>
                                         <MdOutlineAddShoppingCart />
                                     </figure>
                                 </div>
@@ -60,7 +58,7 @@ export const ProductCard = ({ products, isLoading }) => {
                                             <p>SKU: {sku}</p>
                                             <p>$ {price}</p>
                                         </div>
-                                        <figure>
+                                        <figure onClick={() => addCartItem(id, 1)}>
                                             <MdOutlineAddShoppingCart />
                                         </figure>
                                     </div>

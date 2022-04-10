@@ -1,0 +1,19 @@
+.shopping-cart {
+    position: relative;
+}
+
+.shopping-cart div {
+    width: 16px;
+    height: 16px;
+    background-color: #e78504;
+    color: #191716;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

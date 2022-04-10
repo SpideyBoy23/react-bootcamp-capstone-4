@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { ShopContext } from '../../Context/context';
 import { useParams } from 'react-router-dom';
 import { useProductDetail } from '../../utils/hooks/useProductDetail';
 import { Loader } from '../../components/Loader/Loader';
@@ -26,8 +27,10 @@ export const ProductDetail = () => {
     const [items, setItems] = useState(0);
     const [existence, setExistence] = useState(true);
 
+    const { addCartItem, cartItems } = useContext(ShopContext);
+
     function addItem () {
-        setItems(items + 1);
+        setItems(parseInt(items) + 1);
     }
 
     function removeItem () {
@@ -36,6 +39,7 @@ export const ProductDetail = () => {
 
     const updateItems = (event) => {
         const numberOfProducts = event.target.value;
+        console.log(numberOfProducts);
         setItems(numberOfProducts);
         
     }
@@ -115,7 +119,11 @@ export const ProductDetail = () => {
                                         <span className={ existence ? 'with-stock' : 'no-stock'  }>There's no more stock available. Please select less products</span>
                                     </div>
                                     <div className="shopping-button">
-                                        <Button type={ `primary add-cart-btn` } value={ 'Add to cart' } action={null} />
+                                        {existence ? 
+                                            <Button type={ `primary add-cart-btn` } value={ 'Add to cart' } action={() => addCartItem(ProductDetailData.results[0], items)}/>
+                                            :
+                                            ''
+                                        }
                                     </div>
                                 </section>
                         </div>
