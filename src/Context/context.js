@@ -30,22 +30,35 @@ const ShopProvider = (props) => {
             if(qty == 0 || qty == null){
                 setCartItems(
                     cartItems.map(x => 
-                        x.id === product.id ? {...exist, quantity: exist.quantity + 1} : x 
+                        x.id === product.id ? {...exist, quantity: exist.quantity + 1, totalPrice: (exist.data.price * (exist.quantity + 1))} : x 
                     )
                 );
             } else {
                 setCartItems(
                     cartItems.map(x => 
-                        x.id === product.id ? {...exist, quantity: exist.quantity + qty} : x 
+                        x.id === product.id ? {...exist, quantity: exist.quantity + qty, totalPrice: (exist.data.price * (exist.quantity + qty))} : x 
                     )
                 );
             }
         } else {
             if(qty == 0 || qty == null) {
-                setCartItems([...cartItems, {...product, quantity: 1}]);
+                setCartItems([...cartItems, {...product, quantity: 1, totalPrice: (product.data.price * 1)}]);
             } else {
-                setCartItems([...cartItems, {...product, quantity: qty}]);
+                setCartItems([...cartItems, {...product, quantity: qty, totalPrice: (product.data.price * qty)}]);
             }
+        }
+    }
+
+    const removeCartItem = (id) => {
+        const exist = cartItems.find(cartItem => cartItem.id == id);
+        if(exist.quantity === 1) {
+            setCartItems(cartItems.filter((x) => x.id !== id));
+        } else {
+            setCartItems(
+                cartItems.map(x =>
+                    x.id === id ? { ...exist, quantity: exist.quantity - 1, totalPrice: (exist.data.price * (exist.quantity - 1))} : x
+                )
+            )
         }
     }
 
@@ -59,7 +72,8 @@ const ShopProvider = (props) => {
                 activeFilters,
                 setActiveSidebar,
                 cartItems,
-                addCartItem
+                addCartItem,
+                removeCartItem
             }
         )
     }, [activeSidebar, activeFilters, cartItems])

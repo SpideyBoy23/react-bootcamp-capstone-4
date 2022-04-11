@@ -6,6 +6,7 @@ import { ProductList } from '../pages/ProductList/ProductList';
 import { ProductDetail } from '../pages/ProductDetail/ProductDetail';
 import { SearchResults } from '../pages/SearchResults/SearchResults';
 import { Cart } from '../pages/Cart/Cart';
+import { Checkout } from '../pages/Checkout/Checkout';
 import ScrollToTop from '../components/common/ScrollToTop/ScrollToTop';
 
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
@@ -38,6 +39,9 @@ function App() {
                                 </Route>
                                 <Route path="/cart" >
                                     <Cart />
+                                </Route>
+                                <Route path="/checkout" >
+                                    <Checkout />
                                 </Route>
                             </Switch>
                         </div>

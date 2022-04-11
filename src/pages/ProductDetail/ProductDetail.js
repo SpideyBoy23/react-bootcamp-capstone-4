@@ -27,7 +27,7 @@ export const ProductDetail = () => {
     const [items, setItems] = useState(0);
     const [existence, setExistence] = useState(true);
 
-    const { addCartItem, cartItems } = useContext(ShopContext);
+    const { addCartItem } = useContext(ShopContext);
 
     function addItem () {
         setItems(parseInt(items) + 1);
