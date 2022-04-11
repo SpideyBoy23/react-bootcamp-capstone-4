@@ -8,11 +8,8 @@ import './Cart.css'
 export const Cart = () => {
 
     const { cartItems, removeCartItem, addCartItem } = useContext(ShopContext);
-    console.log(cartItems);
 
     const totalPrice = cartItems.reduce((a, c) => a + c.totalPrice, 0);
-    // const totalPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
-    console.log(totalPrice);
 
     if(cartItems.length === 0){
         return (
@@ -63,7 +60,7 @@ export const Cart = () => {
                     </div>
                 </aside>
                 <aside className="col-1 summary-table-col">
-                    <div className='total-price-container'>
+                    <div className="total-price-container">
                         <div className="total-price-info">
                             <h3>Total Price:</h3>
                             <h2>${totalPrice}</h2>

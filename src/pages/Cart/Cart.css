@@ -32,6 +32,10 @@
     padding: 20px;
 }
 
+.total-price-container a {
+    position: unset;
+}
+
 .total-price-info {
     width: 100%;
     display: flex;
@@ -60,4 +64,8 @@
     padding: 7px 17px;
     font-size: 24px;
     margin: 0.5em;
+}
+
+.empty-section a {
+    position: unset;
 }
