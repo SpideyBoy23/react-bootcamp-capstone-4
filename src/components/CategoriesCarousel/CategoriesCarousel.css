@@ -88,6 +88,11 @@
     margin-bottom: 0;
     color: var(--very-light-pink);
 }
+.categories-cards a {
+    color: #f8f8f8;
+    position: relative;
+    display: inline !important;
+}
 
 @media (max-width: 640px) {
     :root {
