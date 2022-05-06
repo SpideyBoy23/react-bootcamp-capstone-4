@@ -1,52 +1,55 @@
-import { useState } from 'react';
+import { ShopProvider } from '../Context/context';
 import { Header } from '../components/Header/Header'
 import { Footer } from '../components/Footer/Footer'
-import { Home } from '../Home/Home';
-import { ProductList } from '../ProductList/ProductList';
-import { Loader } from '../components/Loader/Loader';
+import { Home } from '../pages/Home/Home';
+import { ProductList } from '../pages/ProductList/ProductList';
+import { ProductDetail } from '../pages/ProductDetail/ProductDetail';
+import { SearchResults } from '../pages/SearchResults/SearchResults';
+import { Cart } from '../pages/Cart/Cart';
+import { Checkout } from '../pages/Checkout/Checkout';
+import ScrollToTop from '../components/common/ScrollToTop/ScrollToTop';
+
+import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
+
 
 import './App.css';
 
 function App() {
 
-    const [renderPage, setRenderPage] = useState(true);
-    const [renderLoading, setRenderLoading ] = useState(true);
-    const [sideBarStatus, setSideBarStatus] = useState(false);
-
-
-    //Change Page Functions
-     //I use two functions instead of a ternary operator because if I pulse the Icon in Home Page, it changes to Products Page
-    function changeProductsPage () {
-            setRenderPage(false);
-            setRenderLoading(false);
-        setTimeout(()=>{
-            setRenderLoading(true);
-        }, 2000)
-    }
-
-    function changeHomePage () {
-        setRenderPage(true);
-    }
-
-    //Open/Close
-    function setSBStatus () {
-        sideBarStatus ? setSideBarStatus(false) : setSideBarStatus(true);
-    }
-
-
     return (
-        <>  
-            <div className="page-container">
-                <Header action={changeHomePage} page={ renderPage } openSideBar={setSBStatus}/>
-                    <div className="content-wrapper">
-                        {renderLoading 
-                            ? renderPage ? <Home action={changeProductsPage} /> : <ProductList sideBarStatus = {sideBarStatus} page={renderPage}/>
-                            :  <Loader /> 
-                        } 
+        <ShopProvider >
+            <Router>
+                <>
+                    <div className="page-container">
+                        <Header/>
+                        <div className="content-wrapper">
+                            <ScrollToTop />
+                            <Switch>
+                                <Route exact path={['/', '/home']}>
+                                    <Home />
+                                </Route>
+                                <Route excact path="/products" >
+                                    <ProductList />
+                                </Route>
+                                <Route excact path="/product/:productId" >
+                                    <ProductDetail />
+                                </Route>
+                                <Route path="/search" >
+                                    <SearchResults />
+                                </Route>
+                                <Route path="/cart" >
+                                    <Cart />
+                                </Route>
+                                <Route path="/checkout" >
+                                    <Checkout />
+                                </Route>
+                            </Switch>
+                        </div>
+                        <Footer />
                     </div>
-                <Footer />
-            </div>
-        </>
+                </>
+            </Router>
+        </ShopProvider>
     );
 }
 

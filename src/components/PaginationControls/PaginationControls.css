@@ -6,24 +6,34 @@
     justify-content: center;
 }
 
-a {
+.pagination-numbers {
     border-radius:18px;
     text-decoration: none;
     font-size: 20px;
     padding: 5px 10px;
     border: 1px solid #E78504;
-    background: #E78504;
-    color: #191716;
+    color: #E78504;
     margin: 5px;
     width: 16px;
 }
 
-.paginationBtn {
+.pagination-btn {
     border-radius: 18px;
     padding: 0;
     width: 32px;
 }
 
-.paginationArrows {
+.pagination-arrows {
     font-size: large;
 }
+
+.active-page{
+    background-color: #E78504;
+    color: #191716;
+}
+
+.numbers span:hover {
+    background-color: #E78504;
+    color: #191716;
+    cursor: pointer;
+} 

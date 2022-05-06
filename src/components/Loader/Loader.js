@@ -6,8 +6,8 @@ export const Loader = () => {
     
     return (
         <>
-            <div className="loaderBackground">
-                <div className="logoLoading">
+            <div className="loader-background">
+                <div className="logo-loading">
                     <img src={logoUrl} alt='Loading...' />
                 </div>
             </div>

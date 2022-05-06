@@ -2,13 +2,14 @@ import { ProductCard } from '../ProductCard/ProductCard';
 import './ProductsGrid.css';
 
 
-export const ProductsGrid = ({ products, idCategoy }) => {
+export const ProductsGrid = ({ products, isLoading, idCategoy, title }) => {
 
     return (
         <>
-            <section className="FeaturedProducts">
+            <h2>{title}</h2>
+            <section className="featured-products">
                 <div className="cards-container">
-                    <ProductCard products={products} idCategoy={idCategoy} />
+                    <ProductCard products={products} isLoading={isLoading} idCategoy={idCategoy} />
                 </div>
             </section>
         </>

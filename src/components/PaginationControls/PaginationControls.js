@@ -4,20 +4,21 @@ import './PaginationControls.css';
 
 
 
-export const Pagination = () => {
+export const Pagination = ({ productsData, isLoading, paginate, activePage}) => {  
 
-    let pagination = [1, 2, 3, 4 ,5]
-    const pages = pagination.map(number => number);
+    const totalPages = [];
+
+    for (let i = 1; i <= productsData.total_pages; i++) {
+        totalPages.push(i)
+    }
 
     return (
-        <div className="numbers">
-            <button className="paginationBtn"><MdKeyboardArrowLeft className="paginationArrows paginationLeft"/></button>
-            {pages.map(number => (
-                <a key={number} >
-                {number}
-                </a>
+        <div className="numbers">            
+            {isLoading ? ' ' :  totalPages.map(number => (
+                <span key={number} className={` ${activePage == number ? ' active-page' : ' '} pagination-numbers`} onClick={() => paginate(number)}>
+                    {number}
+                </span>
             ))}
-            <button className="paginationBtn"><MdKeyboardArrowRight className="paginationArrows paginationRight"/></button>
         </div>
     );
 };

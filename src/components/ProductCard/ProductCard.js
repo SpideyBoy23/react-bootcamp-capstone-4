@@ -1,16 +1,25 @@
+import { useContext } from 'react';
+import { ShopContext } from '../../Context/context';
+import { Loader } from '../Loader/Loader'
+import { MdOutlineAddShoppingCart } from 'react-icons/md';
 import './ProductCard.css'
+import { Link } from 'react-router-dom';
 
 
-export const ProductCard = ({ products, idCategoy }) => {
+export const ProductCard = ({ products, isLoading }) => {
 
-    if(idCategoy === '' || typeof(idCategoy) === 'undefined'){
+    const { activeFilters: idCategoy, addCartItem } = useContext(ShopContext);
+
+    if(idCategoy.length === 0){
         return (
             <>
-                {products.results.map((product, index) => {
-                        const { data: {name, sku, category: { slug }, mainimage: { alt, url }, price} } = product
+                {isLoading ? <Loader /> : products.results.map((product, index) => {
+                        const { id, data: {name, sku, category: { slug }, mainimage: { alt, url }, price} } = product
                         return (
                             <div className="product-card" key={index}>
-                                <img src={url} alt={alt} className="product-img" />
+                                <Link to={`/product/${id}`}>
+                                    <img src={url} alt={alt} className="product-img" />
+                                </Link>
                                 <div className="product-info">
                                     <div>
                                         <p>{name}</p>
@@ -18,6 +27,9 @@ export const ProductCard = ({ products, idCategoy }) => {
                                         <p>SKU: {sku}</p>
                                         <p>$ {price}</p>
                                     </div>
+                                    <figure onClick={() => addCartItem(product)}>
+                                        <MdOutlineAddShoppingCart />
+                                    </figure>
                                 </div>
                             </div>
                             
@@ -29,23 +41,31 @@ export const ProductCard = ({ products, idCategoy }) => {
     } else {
         return (
             <>
-                {products.results.filter(category => category.data.category.id === idCategoy).map((product, index) => {
-                        const { data: {name, sku, category: { slug }, mainimage: { alt, url }, price} } = product
-                        return (
-                            <div className="product-card" key={index}>
-                                <img src={url} alt={alt} className="product-img" />
-                                <div className="product-info">
-                                    <div>
-                                        <p>{name}</p>
-                                        <p>{slug}</p>
-                                        <p>SKU: {sku}</p>
-                                        <p>$ {price}</p>
+                {isLoading ? <Loader /> : 
+                products.results.
+                    filter(category => category.data.category.id === idCategoy.find(element => element === category.data.category.id)).
+                        map((product, index) => {
+                            const { id, data: {name, sku, category: { slug }, mainimage: { alt, url }, price} } = product
+                            return (
+                                <div className="product-card" key={index}>
+                                    <Link to={`/product/${id}`}>
+                                        <img src={url} alt={alt} className="product-img" />
+                                    </Link>
+                                    <div className="product-info">
+                                        <div>
+                                            <p>{name}</p>
+                                            <p>{slug}</p>
+                                            <p>SKU: {sku}</p>
+                                            <p>$ {price}</p>
+                                        </div>
+                                        <figure onClick={() => addCartItem(id, 1)}>
+                                            <MdOutlineAddShoppingCart />
+                                        </figure>
                                     </div>
-                                </div>
-                            </div>
-                            
-                        )
-                    })}
+                                </div>                            
+                            )
+                        })
+                }
             </>
         )
     }

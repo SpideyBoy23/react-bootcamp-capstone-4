@@ -1,0 +1,124 @@
+.summary-title {
+    margin: 32px 32px 32px 32px;
+    color: #f8f8f8;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.checkout-table-row {
+    display: flex;
+    margin: 32px 32px 32px 32px;
+}
+
+.form-col {
+    padding: 16px;
+    color: #f8f8f8;
+}
+
+.col-1 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.col-2 {   
+    flex: 2;
+}
+
+.total-price-container {
+    border: 1px solid #E78504;
+    padding: 20px;
+}
+
+.total-price-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.total-price-info h2 {
+    color: #E78504;
+}
+
+.empty-section button {
+    margin-top: 45px;
+}
+
+.products-container {
+    font-size: 24px;
+    text-align: center;
+}
+
+.product-image-container img{
+    width: 120px;
+}
+
+.control-buttons-container button {
+    padding: 7px 17px;
+    font-size: 24px;
+    margin: 0.5em;
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.checkout-form label {
+    padding-top: 10px;
+}
+
+.checkout-form input {
+    margin: 10px 0 10px 0;
+    font-family: 'Quicksand', sans-serif;
+    border-radius: 8px;
+    background: #ededed;
+    border: none;
+    width: 540px;
+    height: 40px;
+    text-align: center;
+    font-weight: 600;
+    transition: .5s ease-in-out;
+    font-size: 14px;
+}
+
+.submit-container{
+    width: auto;
+}
+.checkout-form input[type=submit] {
+    background-color: #E78504;
+    width: 100%;
+    height: 70px;    
+    font-size: 26px;
+}
+
+.checkout-form input[type=submit]:hover {
+    box-shadow: 0px 0px 10px #E78504;
+    cursor: pointer; 
+}
+
+.customer-title, .billing-title {
+    border-bottom: 1px solid #E78504;
+}
+
+.customer-title h2, .billing-title h2 {
+    text-align: left;
+}
+
+.customer-title svg, .billing-title svg {
+    color: #E78504;
+    font-size: 32px;
+}
+
+.summary-items-container a{
+    position: unset;
+}
+
+.field-error {
+    color: red;
+    font-size: 12px;
+}
